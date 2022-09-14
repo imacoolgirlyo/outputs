@@ -26,5 +26,25 @@ class Phone {
     this.duration = duration;
   }
 
-  public calculateFee(): number {}
+  public calculateFee(): number {
+    let totalFee;
+    this.calls.forEach((call) => {
+      return (totalFee += (call.getDuration() / this.duration) * this.amount);
+    });
+    return totalFee;
+  }
+}
+
+class NightlyDiscountPhone extends Phone {
+  private regularAmount: number;
+  private nightlyAmount: number;
+  private duration: number;
+
+  constructor(regularAmount: number, nightlyAmount: number, duration: number) {
+    super();
+
+    this.regularAmount = regularAmount;
+    this.nightlyAmount = nightlyAmount;
+    this.duration = duration;
+  }
 }
